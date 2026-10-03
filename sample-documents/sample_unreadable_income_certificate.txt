@@ -1,0 +1,11 @@
+[SCAN LOW CONTRAST - UNREADABLE OCR TEST]
+SAMPLE PROTOTYPE DOCUMENT - LOW RESOLUTION
+======================================================
+INCOME CERTIFICATE
+[### BLURRED TEXT ###]
+Name: Anjali Marandi
+Income: [ILLEGIBLE STAMP - DIGITS OBSCURED]
+Authority: [STAMP FAINT / NO SIGNATURE VISIBLE]
+Status: Low Resolution (<150 DPI)
+======================================================
+SAMPLE DATA FOR TESTING AUTOMATED DEFICIENCY ENGINE
