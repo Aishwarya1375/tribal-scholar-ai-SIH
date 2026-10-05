@@ -37,7 +37,17 @@ class ApiClient {
       headers
     });
 
-    const data = await res.json();
+    const responseText = await res.text();
+    let data: { success?: boolean; data: T; error?: string };
+    try {
+      data = JSON.parse(responseText);
+    } catch {
+      if (!res.ok) {
+        throw new Error(`API request failed with status ${res.status}. The backend may not be deployed.`);
+      }
+      throw new Error('The server returned an unexpected response. The backend API may not be configured for this deployment.');
+    }
+
     if (!res.ok || data.success === false) {
       throw new Error(data.error || `Request failed with status ${res.status}`);
     }
