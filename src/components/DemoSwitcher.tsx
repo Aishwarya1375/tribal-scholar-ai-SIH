@@ -78,15 +78,17 @@ export const DemoSwitcher: React.FC<DemoSwitcherProps> = ({
       <button
         type="button"
         onClick={() => setIsOpen(!isOpen)}
-        className="inline-flex items-center gap-2 px-3 py-1.5 text-xs font-semibold rounded-lg bg-amber-500/10 hover:bg-amber-500/20 text-amber-900 border border-amber-300 transition-all cursor-pointer shadow-2xs"
-        title="Quickly switch between Demo Roles (Student, Verifier, Officer, Admin)"
+        className="inline-flex max-w-[12rem] items-center gap-2 rounded-lg border border-amber-400/60 bg-amber-500/10 px-2 py-1.5 text-xs font-semibold text-amber-100 shadow-2xs transition-all hover:bg-amber-500/20 cursor-pointer sm:max-w-[15rem] sm:px-3 lg:max-w-[13rem] xl:max-w-[18rem]"
+        title={`Switch demo persona${currentUser ? ` (current: ${currentUser.name}, ${currentUser.role})` : ''}`}
+        aria-label={`Switch demo persona${currentUser ? `, current user ${currentUser.name}` : ''}`}
+        aria-expanded={isOpen}
       >
-        <div className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
-        <span className="hidden sm:inline">Demo Persona:</span>
-        <span className="font-bold underline decoration-amber-400">
+        <span className="w-2 h-2 shrink-0 rounded-full bg-amber-400 animate-pulse" />
+        <span className="hidden 2xl:inline">Demo Persona:</span>
+        <span className="min-w-0 truncate whitespace-nowrap font-bold">
           {currentUser ? `${currentUser.name} (${currentUser.role})` : 'Select Demo User'}
         </span>
-        <ChevronDown className="w-3.5 h-3.5 text-amber-700" />
+        <ChevronDown className="w-3.5 h-3.5 shrink-0 text-amber-300" />
       </button>
 
       {isOpen && (

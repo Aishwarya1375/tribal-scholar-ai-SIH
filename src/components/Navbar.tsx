@@ -41,11 +41,11 @@ export const Navbar: React.FC<NavbarProps> = ({
       <TricolorBar />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex flex-wrap items-center justify-between gap-y-1 py-2">
           {/* Brand Logo & Government Identity */}
           <div
             onClick={() => onNavigate('landing')}
-            className="flex items-center gap-3 cursor-pointer select-none group"
+            className="flex min-w-0 flex-1 items-center gap-3 cursor-pointer select-none group"
           >
             {/* Ashok Emblem Representation */}
             <div className="w-10 h-10 rounded-xl bg-white/10 border border-amber-400/40 flex items-center justify-center p-1.5 shadow-inner group-hover:border-amber-400 transition-all">
@@ -54,21 +54,21 @@ export const Navbar: React.FC<NavbarProps> = ({
 
             <div>
               <div className="flex items-center gap-2">
-                <span className="font-extrabold text-sm sm:text-base tracking-wide text-white font-['Plus_Jakarta_Sans',sans-serif]">
+                <span className="max-w-[12rem] truncate whitespace-nowrap font-extrabold text-sm sm:max-w-[15rem] sm:text-base tracking-wide text-white font-['Plus_Jakarta_Sans',sans-serif] xl:max-w-none">
                   MoTA SCHOLARSHIP PORTAL
                 </span>
-                <span className="hidden md:inline-flex items-center gap-1 text-[10px] font-bold px-1.5 py-0.5 rounded bg-amber-400 text-slate-950 uppercase tracking-wider">
+                <span className="hidden xl:inline-flex items-center gap-1 text-[10px] font-bold px-1.5 py-0.5 rounded bg-amber-400 text-slate-950 uppercase tracking-wider">
                   <Sparkles className="w-2.5 h-2.5" /> SIH Prototype
                 </span>
               </div>
-              <p className="text-[11px] text-slate-300 font-medium hidden sm:block">
+              <p className="hidden max-w-[30rem] truncate whitespace-nowrap text-[11px] text-slate-300 font-medium sm:block">
                 Ministry of Tribal Affairs, Government of India • NFST & NOS Schemes
               </p>
             </div>
           </div>
 
           {/* Navigation Links */}
-          <nav className="hidden lg:flex items-center gap-1">
+          <nav className="order-3 hidden w-full items-center justify-center gap-1 overflow-x-auto whitespace-nowrap pb-1 lg:flex">
             <button
               onClick={() => onNavigate('landing')}
               className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
@@ -168,7 +168,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           </nav>
 
           {/* Right Action Tools: Demo Switcher + Notifications + Profile */}
-          <div className="flex items-center gap-2 sm:gap-3">
+          <div className="flex shrink-0 items-center gap-2 sm:gap-3">
             <DemoSwitcher
               currentUser={currentUser}
               onSwitchUser={onSwitchUser}
@@ -179,9 +179,9 @@ export const Navbar: React.FC<NavbarProps> = ({
 
             {currentUser ? (
               <div className="flex items-center gap-2 pl-2 border-l border-slate-700">
-                <div className="hidden sm:block text-right">
-                  <p className="text-xs font-bold text-white leading-tight">{currentUser.name}</p>
-                  <p className="text-[10px] text-amber-300 capitalize font-medium">{currentUser.role}</p>
+                <div className="hidden max-w-28 text-right sm:block">
+                  <p className="truncate whitespace-nowrap text-xs font-bold text-white leading-tight">{currentUser.name}</p>
+                  <p className="truncate whitespace-nowrap text-[10px] text-amber-300 capitalize font-medium">{currentUser.role}</p>
                 </div>
                 <button
                   onClick={onLogout}
