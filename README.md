@@ -47,6 +47,12 @@ npm run dev
 - **Backend Health Check**: `http://localhost:3000/api/health`
 - **AI Intelligence Service Health Check**: `http://localhost:3000/ai/health`
 
+### Vercel deployment
+
+The `api/[...path].ts` function forwards `/api/*` requests to the Express backend. Vercel can then build the Vite frontend and serve its API routes from the same deployment. After pushing changes to the connected GitHub branch, wait for Vercel to finish a new deployment before testing `/api/health` or signing in.
+
+This serverless setup is for prototype/demo use: its in-memory and local-file data is not a durable shared database, so registrations and updates may not persist between function instances. Configure a persistent database adapter before using it for real applicants or production data.
+
 ---
 
 ## 🛡️ Reliability & Resilience Architecture
